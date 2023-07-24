@@ -1,0 +1,25 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #0D0D0D;
+    color: aliceblue;
+}
+#root {
+    display: flex;
+    justify-content: center;
+}
+.App {
+    width: 800px;
+    background-color: black;
+}
+
+.post {
+    display: flex;
+    padding: 15px;
+    border: 2px solid crimson;
+    color: aliceblue;
+    margin-top: 15px;
+    justify-content: space-between;
+    align-items: center;
+}
