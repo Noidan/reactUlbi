@@ -3,6 +3,7 @@ import './styles/App.css'
 import PostList from "./components/PostList";
 import PostForm from "./components/PostForm";
 import PostFilter from "./components/PostFilter";
+import MyModal from "./components/UI/MyModal/MyModal";
 
 function App() {
 
@@ -39,6 +40,7 @@ function App() {
   }
 
   return <div className="App">
+    <MyModal>Modal text</MyModal>
     <PostForm create={createPost} />
     <hr style={{ margin: '15px 0' }} />
     <PostFilter filter={filter} setFilter={setFilter} />

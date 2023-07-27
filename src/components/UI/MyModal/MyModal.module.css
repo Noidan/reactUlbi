@@ -5,4 +5,20 @@
     right: 0;
     left: 0;
     display: none;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.myModalContent {
+    padding: 25px;
+    background: white;
+    border-radius: 16px;
+    min-width: 250px;
+    color: crimson;
+    font-size: 20px;
+}
+
+.myModal.active {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
