@@ -47,7 +47,7 @@ function App() {
     <MyButton style={{marginTop:30}}onClick={() => setModal(true)}>
       Создать пользователя
     </MyButton>
-    <MyModal visible={modal} setVisible={setModal}>
+    <MyModal visible={modal} setVisible={setModal} myModalName='New post'>
       <PostForm create={createPost} />
     </MyModal>
 
