@@ -15,7 +15,7 @@ const MyModal = ({ children, visible, setVisible, myModalName}) => {
         {myModalName}
             <div className={cl.myModalClose}>
                 
-                <MyButton onClick={() => setVisible(false)}>
+                <MyButton style={{border: '0px'}} onClick={() => setVisible(false)}>
                     X
                 </MyButton>
             </div>
