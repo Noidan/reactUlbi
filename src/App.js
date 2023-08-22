@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import './styles/App.css'
 import PostList from "./components/PostList";
 import PostForm from "./components/PostForm";
@@ -7,21 +7,21 @@ import MyModal from "./components/UI/MyModal/MyModal";
 import MyButton from "./components/UI/button/MyButton";
 import { usePosts } from "./hooks/usePosts";
 import axios from "axios";
+import PostService from "./API/PostService";
+import Loader from './components/UI/Loader/Loader';
 
 
 function App() {
 
-  const [posts, setPosts] = useState([
-    { id: 1, title: 'JavaScript', body: 'Description 1' },
-    { id: 2, title: 'React', body: 'Description 2' },
-    { id: 3, title: 'Redux', body: 'Description 3' },
-    { id: 4, title: 'NodeJS', body: 'Description 4' },
-    { id: 5, title: 'TypeScript', body: 'Description 5' }
-  ])
-
+  const [posts, setPosts] = useState([])
   const [filter, setFilter] = useState({ sort: '', query: '' })
   const [modal, setModal] = useState(false)
   const sortedAndSearchedPosts = usePosts(posts, filter.sort, filter.query)
+  const [isPostsLoading, setIsPostsLoading] = useState(false)
+
+  useEffect(() => {
+    fetchPosts()
+  }, [])
 
   const createPost = (newPost) => {
     setPosts([...posts, newPost])
@@ -29,8 +29,13 @@ function App() {
   }
 
   async function fetchPosts() {
-    const response = await axios.get('https://jsonplaceholder.typicode.com/posts')
-    setPosts(response.data)
+    setIsPostsLoading(true)
+    setTimeout(async() => {
+      const posts = await PostService.getAll();
+      setPosts(posts)
+      setIsPostsLoading(false)
+    }, 1000)
+
   }
 
   const removePost = (post) => {
@@ -38,11 +43,8 @@ function App() {
   }
 
   return <div className="App">
-    <MyButton style={{ marginTop: 30 }} onClick={fetchPosts}>
-      GET POSTS
-    </MyButton>
     <MyButton style={{ marginTop: 30 }} onClick={() => setModal(true)}>
-      Создать пользователя
+      Create post
     </MyButton>
     <MyModal visible={modal} setVisible={setModal} myModalName='New post'>
       <PostForm create={createPost} />
@@ -50,7 +52,10 @@ function App() {
 
     <hr style={{ margin: '15px 0' }} />
     <PostFilter filter={filter} setFilter={setFilter} />
-    <PostList remove={removePost} posts={sortedAndSearchedPosts} title='Post list' />
+    {isPostsLoading
+      ? <div style = {{display: 'flex', justifyContent:'center', marginTop: 100}}> <Loader/> </div>
+      : <PostList remove={removePost} posts={sortedAndSearchedPosts} title='Post list' />
+    }
   </div>
 }
 
