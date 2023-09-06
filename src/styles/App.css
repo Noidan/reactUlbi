@@ -1,76 +1,93 @@
-*{
-    margin:0;
-    padding: 0;
-    box-sizing: border-box;
-    background-color: #0D0D0D;
-    color: aliceblue;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #0D0D0D;
+  color: aliceblue;
+  text-decoration: none;
 }
+
 #root {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
+
 .App {
-    width: 800px;
-    background-color: #0D0D0D;
+  width: 800px;
+  background-color: #0D0D0D;
 }
 
 .post {
-    display: flex;
-    padding: 15px;
-    border: 2px solid crimson;
-    color: aliceblue;
-    margin-top: 15px;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  padding: 15px;
+  border: 2px solid crimson;
+  color: aliceblue;
+  margin-top: 15px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.post__btns {
+  display: flex;
+
 }
 
 .remove-btn {
-    margin-right: 0.5rem;
-  }
-  
-  .post-enter {
-    opacity: 0;
-  }
-  .post-enter-active {
-    opacity: 1;
-    transition: opacity 500ms ease-in;
-  }
-  .post-exit {
-    opacity: 1;
-  }
-  .post-exit-active {
-    opacity: 0;
-    transition: opacity 500ms ease-in;
-  }
-  
-  .page__wrapper {
-    margin-top: 30px;
-    display: flex;
-    justify-content: center;
-  }
+  margin-right: 0.5rem;
+}
 
-  .page {
-    padding: 10px;
-    border: 1px solid crimson;
-    cursor: pointer;
-  }
+.post-enter {
+  opacity: 0;
+}
 
-  .page__current {
-    border: 2px solid aliceblue;
-    font-weight: bold;
-  }
+.post-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+}
 
-  .navbar {
-    height: 50px;
-    width: 100vw;
-    display: flex;
-    align-items: center;
-    padding: 0 15px;
-    background-color: crimson;
-  }
+.post-exit {
+  opacity: 1;
+}
 
-  .navbar__links {
-    margin-left: auto;
+.post-exit-active {
+  opacity: 0;
+  transition: opacity 500ms ease-in;
+}
 
-  }
+.page__wrapper {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+.page {
+  padding: 10px;
+  border: 1px solid crimson;
+  cursor: pointer;
+}
+
+.page__current {
+  border: 2px solid aliceblue;
+  font-weight: bold;
+}
+
+.navbar {
+  height: 50px;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  padding: 0 15px;
+  background-color: crimson;
+
+}
+
+.navbar__logo {
+  color: crimson;
+
+}
+
+.navbar__links {
+  margin-left: auto;
+
+}

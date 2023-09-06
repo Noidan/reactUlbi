@@ -5,6 +5,9 @@ import MyButton from '../button/MyButton'
 
 const Navbar = () => {
     return <div className="navbar">
+        <div className="navbar__logo">
+        <MyButton><Link to="/">REACT TONY</Link></MyButton>
+        </div>
         <div className="navbar__links">
         <MyButton><Link to="/about">About</Link></MyButton>
             
